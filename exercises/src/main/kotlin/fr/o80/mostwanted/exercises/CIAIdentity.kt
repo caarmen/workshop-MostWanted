@@ -21,13 +21,6 @@ import fr.o80.mostwanted.internals.PreviewTheme
 @Composable
 fun CIAIdentity(modifier: Modifier = Modifier) {
     Scaffold(modifier=modifier,
-        topBar = {
-            CenterAlignedTopAppBar(
-                title = {
-                    Text("CIA")
-                }
-            )
-        },
         bottomBar = {
             Text(
                 "Badge",

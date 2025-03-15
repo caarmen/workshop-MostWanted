@@ -3,8 +3,14 @@ package fr.o80.mostwanted.exercises
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.AccountCircle
+import androidx.compose.material.icons.filled.Build
+import androidx.compose.material.icons.filled.DateRange
+import androidx.compose.material.icons.filled.Done
+import androidx.compose.material.icons.filled.Info
 import androidx.compose.material.icons.filled.Menu
 import androidx.compose.material.icons.filled.Person
+import androidx.compose.material3.CenterAlignedTopAppBar
 import androidx.compose.material3.Icon
 import androidx.compose.material3.NavigationBar
 import androidx.compose.material3.NavigationBarItem
@@ -19,11 +25,57 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import fr.o80.mostwanted.internals.PreviewTheme
 
+val missions= listOf(
+    CIAMissionUIModel(
+        publicTitle = "Mission Secrète #1",
+        secretTitle = "Configurer Android Studio",
+        secretIconStart = Icons.Default.Info,
+        secretIconEnd = Icons.Default.Done,
+    ),
+    CIAMissionUIModel(
+        publicTitle = "Mission Secrète #2",
+        secretTitle = "Apprendre les bases de Jetpack Compose",
+        secretIconStart = Icons.Default.Info,
+        secretIconEnd = Icons.Default.Done,
+    ),
+    CIAMissionUIModel(
+        publicTitle = "Mission Secrète #3",
+        secretTitle = "Finir l'atelier",
+        secretIconStart = Icons.Default.Info,
+        secretIconEnd = Icons.Default.Build,
+    ),
+    CIAMissionUIModel(
+        publicTitle = "Mission Secrète #4",
+        secretTitle = "Envoyer une photo de mon badge sur les réseaux sociaux",
+        secretIconStart = Icons.Default.AccountCircle,
+        secretIconEnd = Icons.Default.DateRange,
+    ),
+    CIAMissionUIModel(
+        publicTitle = "Mission Secrète #5",
+        secretTitle = "Créer ma propre application mobile",
+        secretIconStart = Icons.Default.Build,
+        secretIconEnd = Icons.Default.DateRange,
+    ),
+    CIAMissionUIModel(
+        publicTitle = "Mission Secrète #6",
+        secretTitle = "Déployer mon application sur les stores",
+        secretIconStart = Icons.Default.Build,
+        secretIconEnd = Icons.Default.DateRange,
+    ),
+)
+
 @Composable
 fun CIABadge(modifier: Modifier = Modifier) {
     var currentPage by rememberSaveable { mutableIntStateOf(0) }
     Scaffold(
         modifier=modifier,
+        topBar = {
+            CenterAlignedTopAppBar(
+                title = {
+                    Text("CIA")
+                }
+            )
+        },
         bottomBar = {
             NavigationBar {
                 NavigationBarItem(
@@ -62,7 +114,10 @@ fun CIABadge(modifier: Modifier = Modifier) {
         if (currentPage == 0) {
             CIAIdentity(modifier = Modifier.padding(paddingValues).fillMaxSize())
         } else {
-            Text("Liste de missions", modifier=Modifier.padding(paddingValues))
+            CIAMissionList(
+                missions = missions,
+                modifier = Modifier.padding(paddingValues)
+            )
         }
     }
 
