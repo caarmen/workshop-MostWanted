@@ -20,7 +20,7 @@ import fr.o80.mostwanted.internals.PreviewTheme
 
 @Composable
 fun CIAIdentity(modifier: Modifier = Modifier) {
-    Scaffold(
+    Scaffold(modifier=modifier,
         topBar = {
             CenterAlignedTopAppBar(
                 title = {
@@ -54,7 +54,7 @@ fun CIAIdentity(modifier: Modifier = Modifier) {
                             label = "Compose",
                             level = "Expert",
                             isBest = true,
-                            modifier = modifier
+                            modifier = Modifier
                         )
                     }
                     item {
@@ -62,7 +62,7 @@ fun CIAIdentity(modifier: Modifier = Modifier) {
                             label = "Compose",
                             level = "Expert",
                             isBest = false,
-                            modifier = modifier
+                            modifier = Modifier
                         )
                     }
                 }

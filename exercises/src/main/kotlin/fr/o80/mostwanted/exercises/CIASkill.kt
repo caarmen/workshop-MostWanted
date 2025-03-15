@@ -28,18 +28,18 @@ fun CIASkill(
     isBest: Boolean,
     modifier: Modifier = Modifier
 ) {
-    Card(modifier = Modifier.fillMaxWidth()) {
+    Card(modifier = modifier.fillMaxWidth()) {
         Row(
             verticalAlignment = Alignment.CenterVertically,
             horizontalArrangement = Arrangement.SpaceAround,
-            modifier = Modifier.padding(vertical = 8.dp, horizontal = 16.dp)
+            modifier = modifier.padding(vertical = 8.dp, horizontal = 16.dp)
         ) {
             Image(
                 painter = painterResource(R.drawable.skill),
                 contentDescription = null,
             )
             Column(
-                modifier = Modifier
+                modifier = modifier
                     .padding(16.dp)
                     .weight(1f)
             ) {
